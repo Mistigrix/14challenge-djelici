@@ -71,7 +71,7 @@ export default function EconomieSection({ population, worldBank }: Props) {
             <Card>
                 <ChartTitle>Évolution de la population — Abidjan & Bouaké (1975–2021)</ChartTitle>
                 <ResponsiveContainer width="100%" height={300}>
-                    <AreaChart data={population} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+                    <AreaChart data={population} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
                         <defs>
                             <linearGradient id="gradAbidjan" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="5%" stopColor={ORANGE} stopOpacity={0.25} />
@@ -85,7 +85,7 @@ export default function EconomieSection({ population, worldBank }: Props) {
                         <CartesianGrid strokeDasharray="3 3" stroke="#f5e6d0" />
                         <XAxis dataKey="annee" tick={{ fontSize: 12 }} />
                         <YAxis tickFormatter={fmt} tick={{ fontSize: 11 }} width={55} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Legend />
                         <Area
                             type="monotone"
@@ -129,11 +129,11 @@ export default function EconomieSection({ population, worldBank }: Props) {
                     <span className="text-sm text-stone-500">en {latestIndicator?.annee}</span>
                 </div>
                 <ResponsiveContainer width="100%" height={280}>
-                    <LineChart data={indicatorData} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+                    <LineChart data={indicatorData} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f5e6d0" />
                         <XAxis dataKey="annee" tick={{ fontSize: 11 }} />
                         <YAxis tick={{ fontSize: 11 }} width={55} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Line
                             type="monotone"
                             dataKey="valeur"

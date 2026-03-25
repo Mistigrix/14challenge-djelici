@@ -78,7 +78,7 @@ export default function About() {
                     <div className="absolute inset-0 flex">
                         <div className="w-1/3 bg-[#F77F00]" />
                         <div className="w-1/3 bg-white/15" />
-                        <div className="w-1/3 bg-[#009A44]/60" />
+                        <div className="w-1/3 bg-[#009A44]" />
                     </div>
                     <div className="relative mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                         <div className="flex items-center justify-between">

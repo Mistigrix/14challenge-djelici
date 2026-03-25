@@ -47,12 +47,12 @@ export default function SportSection({ stadiums }: Props) {
                             nom: s.nom.split(' ').slice(0, 3).join(' '),
                             capacite: s.capacite,
                         }))}
-                        margin={{ top: 5, right: 20, left: 10, bottom: 60 }}
+                        margin={{ top: 5, right: 10, left: -10, bottom: 60 }}
                     >
                         <CartesianGrid strokeDasharray="3 3" stroke="#f5e6d0" />
                         <XAxis dataKey="nom" tick={{ fontSize: 9, angle: -25, textAnchor: 'end' }} interval={0} />
                         <YAxis tickFormatter={fmt} tick={{ fontSize: 11 }} width={55} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Bar dataKey="capacite" name="Capacité" radius={[6, 6, 0, 0]}>
                             {stadiums.map((_, i) => (
                                 <Cell key={i} fill={PALETTE[i % PALETTE.length]} />

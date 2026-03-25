@@ -102,11 +102,11 @@ export default function SecuriteSection({ military }: Props) {
             <Card>
                 <ChartTitle>Évolution de l'effectif des policiers (2011–2020)</ChartTitle>
                 <ResponsiveContainer width="100%" height={300}>
-                    <BarChart data={evolutionData} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+                    <BarChart data={evolutionData} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f5e6d0" />
                         <XAxis dataKey="annee" tick={{ fontSize: 12 }} />
                         <YAxis tickFormatter={fmt} tick={{ fontSize: 11 }} width={60} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Legend />
                         <Bar dataKey="Hommes" fill={BLUE} radius={[3, 3, 0, 0]} stackId="a" />
                         <Bar dataKey="Femmes" fill={TEAL} radius={[3, 3, 0, 0]} stackId="a" />
@@ -132,7 +132,7 @@ export default function SecuriteSection({ military }: Props) {
                                     <Cell key={i} fill={PALETTE[i % PALETTE.length]} />
                                 ))}
                             </Pie>
-                            <Tooltip formatter={(v) => `${v}%`} />
+                            <Tooltip formatter={(v) => `${v}%`} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         </PieChart>
                     </ResponsiveContainer>
                 </Card>
@@ -153,7 +153,7 @@ export default function SecuriteSection({ military }: Props) {
                                     <Cell key={i} fill={PALETTE[i % PALETTE.length]} />
                                 ))}
                             </Pie>
-                            <Tooltip formatter={(v) => `${v}%`} />
+                            <Tooltip formatter={(v) => `${v}%`} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         </PieChart>
                     </ResponsiveContainer>
                 </Card>

@@ -114,7 +114,7 @@ export default function SanteSection({ covid, accidents, accidentsByType, hivCov
                     />
                 </div>
                 <ResponsiveContainer width="100%" height={280}>
-                    <AreaChart data={covidFiltered} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+                    <AreaChart data={covidFiltered} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
                         <defs>
                             <linearGradient id="gradCovid" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="5%" stopColor={RED} stopOpacity={0.25} />
@@ -129,7 +129,7 @@ export default function SanteSection({ covid, accidents, accidentsByType, hivCov
                             interval={Math.floor(covidFiltered.length / 10)}
                         />
                         <YAxis tickFormatter={fmt} tick={{ fontSize: 11 }} width={55} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Area
                             type="monotone"
                             dataKey={covidMetric}
@@ -146,11 +146,11 @@ export default function SanteSection({ covid, accidents, accidentsByType, hivCov
             <Card>
                 <ChartTitle>Évolution des accidents de la route (2000–2020)</ChartTitle>
                 <ResponsiveContainer width="100%" height={260}>
-                    <BarChart data={accidents} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+                    <BarChart data={accidents} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f5e6d0" />
                         <XAxis dataKey="annee" tick={{ fontSize: 11 }} />
                         <YAxis tickFormatter={fmt} tick={{ fontSize: 11 }} width={55} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Bar dataKey="effectif" name="Accidents" fill={ORANGE} radius={[4, 4, 0, 0]}>
                             {accidents.map((_, i) => (
                                 <Cell key={i} fill={`hsl(${30 + i * 2}, 90%, ${45 + i * 0.5}%)`} />
@@ -171,11 +171,11 @@ export default function SanteSection({ covid, accidents, accidentsByType, hivCov
                     />
                 </div>
                 <ResponsiveContainer width="100%" height={240}>
-                    <BarChart data={accidentTypeData} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+                    <BarChart data={accidentTypeData} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f5e6d0" />
                         <XAxis dataKey="annee" tick={{ fontSize: 12 }} />
                         <YAxis tick={{ fontSize: 11 }} width={55} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Legend />
                         {lieux.map((lieu, i) => (
                             <Bar key={lieu} dataKey={lieu} fill={PALETTE[i % PALETTE.length]} radius={[3, 3, 0, 0]} />
@@ -195,7 +195,7 @@ export default function SanteSection({ covid, accidents, accidentsByType, hivCov
                     />
                 </div>
                 <ResponsiveContainer width="100%" height={260}>
-                    <AreaChart data={hivData} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+                    <AreaChart data={hivData} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
                         <defs>
                             <linearGradient id="gradHiv" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="5%" stopColor={GREEN} stopOpacity={0.3} />
@@ -205,7 +205,7 @@ export default function SanteSection({ covid, accidents, accidentsByType, hivCov
                         <CartesianGrid strokeDasharray="3 3" stroke="#f5e6d0" />
                         <XAxis dataKey="annee" tick={{ fontSize: 11 }} />
                         <YAxis tickFormatter={(v) => `${v}%`} tick={{ fontSize: 11 }} width={45} domain={[0, 100]} />
-                        <Tooltip content={<CustomTooltip unit="%" />} />
+                        <Tooltip content={<CustomTooltip unit="%" />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Area
                             type="monotone"
                             dataKey="couverture"

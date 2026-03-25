@@ -1,13 +1,24 @@
+// Couleurs du drapeau ivoirien
 export const ORANGE = '#F77F00';
 export const GREEN = '#009A44';
-export const GOLD = '#C8A84B';
-export const BLUE = '#2196F3';
-export const RED = '#E53935';
-export const PURPLE = '#8E24AA';
-export const TEAL = '#00897B';
-export const PINK = '#E91E63';
+export const WHITE = '#FFFFFF';
 
-export const PALETTE = [ORANGE, GREEN, GOLD, BLUE, RED, PURPLE, TEAL, '#FF8A65', '#26A69A'];
+// Variantes dérivées du drapeau
+export const ORANGE_LIGHT = '#FFAD5C';
+export const ORANGE_DARK = '#CC6600';
+export const GREEN_LIGHT = '#33CC77';
+export const GREEN_DARK = '#006B2E';
+export const GOLD = '#C8A84B';
+export const GOLD_LIGHT = '#E0C878';
+
+// Couleurs héritées (conservation pour compatibilité)
+export const BLUE = ORANGE_LIGHT;
+export const RED = ORANGE_DARK;
+export const PURPLE = GREEN_DARK;
+export const TEAL = GREEN_LIGHT;
+export const PINK = ORANGE_DARK;
+
+export const PALETTE = [ORANGE, GREEN, GOLD, ORANGE_LIGHT, GREEN_LIGHT, ORANGE_DARK, GREEN_DARK, GOLD_LIGHT, '#FFD6A0'];
 
 export const KEY_INDICATORS = [
     "Croissance du PIB (% annuel)",

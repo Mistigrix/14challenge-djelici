@@ -109,11 +109,11 @@ export default function EducationSection({ teachers, byRegion, byPeriod }: Props
             <Card>
                 <ChartTitle>Enseignants par discipline — Secteur Public (Femmes vs Hommes)</ChartTitle>
                 <ResponsiveContainer width="100%" height={380}>
-                    <BarChart layout="vertical" data={teachersData} margin={{ top: 5, right: 30, left: 110, bottom: 5 }}>
+                    <BarChart layout="vertical" data={teachersData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f5e6d0" horizontal={false} />
                         <XAxis type="number" tick={{ fontSize: 11 }} />
-                        <YAxis type="category" dataKey="discipline" tick={{ fontSize: 11 }} width={105} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <YAxis type="category" dataKey="discipline" tick={{ fontSize: 10 }} width={90} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Legend />
                         <Bar dataKey="Femmes" stackId="a" fill={TEAL} />
                         <Bar dataKey="Hommes" stackId="a" fill={BLUE} radius={[0, 4, 4, 0]} />
@@ -124,11 +124,11 @@ export default function EducationSection({ teachers, byRegion, byPeriod }: Props
             <Card>
                 <ChartTitle>Élèves dans le primaire par région (Filles vs Garçons) — Top 12 DREN</ChartTitle>
                 <ResponsiveContainer width="100%" height={340}>
-                    <BarChart data={regionData} margin={{ top: 5, right: 20, left: 10, bottom: 60 }}>
+                    <BarChart data={regionData} margin={{ top: 5, right: 10, left: -10, bottom: 60 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f5e6d0" />
                         <XAxis dataKey="dren" tick={{ fontSize: 10, angle: -35, textAnchor: 'end' }} interval={0} />
                         <YAxis tickFormatter={fmt} tick={{ fontSize: 11 }} width={55} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Legend />
                         <Bar dataKey="Filles" fill={TEAL} radius={[3, 3, 0, 0]} />
                         <Bar dataKey="Garçons" fill={BLUE} radius={[3, 3, 0, 0]} />
@@ -155,11 +155,11 @@ export default function EducationSection({ teachers, byRegion, byPeriod }: Props
                     </div>
                 </div>
                 <ResponsiveContainer width="100%" height={300}>
-                    <BarChart data={periodData} margin={{ top: 5, right: 20, left: 10, bottom: 60 }}>
+                    <BarChart data={periodData} margin={{ top: 5, right: 10, left: -10, bottom: 60 }}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#f5e6d0" />
                         <XAxis dataKey="ville" tick={{ fontSize: 10, angle: -35, textAnchor: 'end' }} interval={0} />
                         <YAxis tickFormatter={fmt} tick={{ fontSize: 11 }} width={55} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255,255,255,0.05)' }} />
                         <Legend />
                         <Bar dataKey="Masculin" fill={BLUE} radius={[3, 3, 0, 0]} />
                         <Bar dataKey="Feminin" fill={TEAL} radius={[3, 3, 0, 0]} />
