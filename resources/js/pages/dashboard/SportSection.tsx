@@ -65,10 +65,10 @@ export default function SportSection({ stadiums }: Props) {
                 {stadiums.map((st, i) => (
                     <div
                         key={i}
-                        className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-orange-100 transition-shadow hover:shadow-md"
+                        className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-orange-100 transition-shadow hover:shadow-md dark:bg-stone-900 dark:ring-stone-800"
                     >
                         {st.photos && (
-                            <div className="h-44 overflow-hidden bg-stone-100">
+                            <div className="h-44 overflow-hidden bg-stone-100 dark:bg-stone-800">
                                 <img
                                     src={st.photos}
                                     alt={st.nom}
@@ -81,7 +81,7 @@ export default function SportSection({ stadiums }: Props) {
                         )}
                         <div className="p-4">
                             <div className="mb-2 flex items-start justify-between gap-2">
-                                <h4 className="text-sm font-bold leading-tight text-stone-800">{st.nom}</h4>
+                                <h4 className="text-sm font-bold leading-tight text-stone-800 dark:text-stone-100">{st.nom}</h4>
                                 <span
                                     className="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-bold text-white"
                                     style={{ background: PALETTE[i % PALETTE.length] }}
@@ -89,20 +89,20 @@ export default function SportSection({ stadiums }: Props) {
                                     {fmt(st.capacite)}
                                 </span>
                             </div>
-                            <div className="mb-3 flex flex-wrap gap-2 text-xs text-stone-500">
+                            <div className="mb-3 flex flex-wrap gap-2 text-xs text-stone-500 dark:text-stone-400">
                                 <span className="flex items-center gap-1">
-                                    📍 <span className="font-medium text-stone-700">{st.ville}</span>
+                                    📍 <span className="font-medium text-stone-700 dark:text-stone-300">{st.ville}</span>
                                 </span>
                                 <span>🗓️ Ouvert en {st.ouverture}</span>
                                 {st.renovation && <span>🔧 Rénové en {st.renovation}</span>}
                             </div>
                             <div className="mb-1 flex items-center justify-between text-xs">
-                                <span className="text-stone-500">Capacité</span>
-                                <span className="font-semibold text-stone-700">
+                                <span className="text-stone-500 dark:text-stone-400">Capacité</span>
+                                <span className="font-semibold text-stone-700 dark:text-stone-300">
                                     {st.capacite.toLocaleString('fr-FR')} places
                                 </span>
                             </div>
-                            <div className="h-2 overflow-hidden rounded-full bg-stone-100">
+                            <div className="h-2 overflow-hidden rounded-full bg-stone-100 dark:bg-stone-700">
                                 <div
                                     className="h-full rounded-full transition-all duration-700"
                                     style={{
@@ -111,7 +111,7 @@ export default function SportSection({ stadiums }: Props) {
                                     }}
                                 />
                             </div>
-                            <p className="mt-3 line-clamp-2 text-xs leading-relaxed text-stone-500">
+                            <p className="mt-3 line-clamp-2 text-xs leading-relaxed text-stone-500 dark:text-stone-400">
                                 {st.description}
                             </p>
                         </div>

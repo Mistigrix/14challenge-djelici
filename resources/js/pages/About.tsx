@@ -1,4 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
+import ThemeToggle from '@/components/dashboard/ThemeToggle';
+import { useTheme } from '@/hooks/useTheme';
 
 const TEAM = [
     {
@@ -64,12 +66,13 @@ const STACK = [
 ];
 
 export default function About() {
+    const { isDark, toggle } = useTheme();
+
     return (
         <>
-            <Head title="À propos — Djelici">
-            </Head>
+            <Head title="À propos — Djelici" />
 
-            <div className="min-h-screen bg-[#FFF8F0]">
+            <div className="min-h-screen bg-[#FFF8F0] dark:bg-stone-950">
                 {/* Header */}
                 <header className="relative overflow-hidden bg-[#F77F00]">
                     <div className="absolute inset-0 flex">
@@ -94,12 +97,15 @@ export default function About() {
                                     </p>
                                 </div>
                             </div>
-                            <Link
-                                href="/"
-                                className="flex items-center gap-2 rounded-xl bg-white/20 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/30"
-                            >
-                                ← Dashboard
-                            </Link>
+                            <div className="flex items-center gap-2">
+                                <ThemeToggle isDark={isDark} onToggle={toggle} />
+                                <Link
+                                    href="/"
+                                    className="flex items-center gap-2 rounded-xl bg-white/20 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/30"
+                                >
+                                    ← Dashboard
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </header>
@@ -107,7 +113,7 @@ export default function About() {
                 <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
                     {/* Project description */}
                     <section className="mb-16">
-                        <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-orange-100 md:p-12">
+                        <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-orange-100 dark:bg-stone-900 dark:ring-stone-800 md:p-12">
                             <div className="flex flex-col items-start gap-8 md:flex-row md:items-center">
                                 <div className="shrink-0">
                                     <div className="flex h-20 w-14 overflow-hidden rounded-2xl shadow-xl">
@@ -117,20 +123,20 @@ export default function About() {
                                     </div>
                                 </div>
                                 <div>
-                                    <span className="mb-3 inline-block rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold tracking-wide text-orange-600 uppercase">
+                                    <span className="mb-3 inline-block rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold tracking-wide text-orange-600 uppercase dark:bg-orange-950 dark:text-orange-400">
                                         Challenge 14-14-14 · Jour 10 · Mars 2026
                                     </span>
-                                    <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-stone-900">
+                                    <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100">
                                         Djelici
                                     </h2>
-                                    <p className="mb-4 max-w-2xl text-base leading-relaxed text-stone-600">
+                                    <p className="mb-4 max-w-2xl text-base leading-relaxed text-stone-600 dark:text-stone-400">
                                         <strong className="text-stone-800">Djelici</strong> est un tableau de bord analytique
                                         dédié à la <strong className="text-[#F77F00]">Côte d'Ivoire</strong>. Il centralise et
                                         visualise des données statistiques nationales issues de sources officielles notamment le portail Open Data national 
                                         (<a href='https://data.gouv.ci' className="text-[#F77F00]" target="_blank">data.gouv.ci</a>) couvrant
                                         l'économie, l'éducation, la santé, la sécurité et le sport.
                                     </p>
-                                    <p className="max-w-2xl text-base leading-relaxed text-stone-600">
+                                    <p className="max-w-2xl text-base leading-relaxed text-stone-600 dark:text-stone-400">
                                         L'application repose sur des jeux de données pré-enregistrés (CSV, GeoJSON) parsés
                                         côté serveur et transmis au client via Inertia.js, sans base de données ni API
                                         externe. Elle offre des filtres dynamiques et des graphiques interactifs adaptés à
@@ -143,13 +149,13 @@ export default function About() {
 
                     {/* Team */}
                     <section className="mb-16">
-                        <h2 className="mb-2 text-2xl font-bold text-stone-900">L'équipe</h2>
-                        <p className="mb-8 text-sm text-stone-500">Les membres ayant contribué à la réalisation du projet.</p>
+                        <h2 className="mb-2 text-2xl font-bold text-stone-900 dark:text-stone-100">L'équipe</h2>
+                        <p className="mb-8 text-sm text-stone-500 dark:text-stone-400">Les membres ayant contribué à la réalisation du projet.</p>
                         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                             {TEAM.map((member, i) => (
                                 <div
                                     key={i}
-                                    className="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-orange-100 transition hover:shadow-md"
+                                    className="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-orange-100 transition hover:shadow-md dark:bg-stone-900 dark:ring-stone-800"
                                 >
                                     <div
                                         className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl text-xl font-extrabold text-white shadow-sm"
@@ -157,7 +163,7 @@ export default function About() {
                                     >
                                         {member.initials}
                                     </div>
-                                    <h3 className="mb-0.5 font-bold text-stone-800">{member.name}</h3>
+                                    <h3 className="mb-0.5 font-bold text-stone-800 dark:text-stone-100">{member.name}</h3>
                                     <p className="mb-3 text-xs font-semibold" style={{ color: member.color }}>
                                         {member.role}
                                     </p>
@@ -168,17 +174,17 @@ export default function About() {
 
                     {/* Tech stack */}
                     <section>
-                        <h2 className="mb-2 text-2xl font-bold text-stone-900">Stack technique</h2>
-                        <p className="mb-8 text-sm text-stone-500">Technologies et sources de données utilisées dans le projet.</p>
+                        <h2 className="mb-2 text-2xl font-bold text-stone-900 dark:text-stone-100">Stack technique</h2>
+                        <p className="mb-8 text-sm text-stone-500 dark:text-stone-400">Technologies et sources de données utilisées dans le projet.</p>
                         <div className="grid gap-6 md:grid-cols-2">
                             {STACK.map((group, i) => (
-                                <div key={i} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-orange-100">
+                                <div key={i} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-orange-100 dark:bg-stone-900 dark:ring-stone-800">
                                     <div className="mb-4 flex items-center gap-3">
                                         <span
                                             className="h-1 w-8 rounded-full"
                                             style={{ background: group.color }}
                                         />
-                                        <h3 className="font-bold text-stone-800">{group.category}</h3>
+                                        <h3 className="font-bold text-stone-800 dark:text-stone-100">{group.category}</h3>
                                     </div>
                                     <ul className="space-y-3">
                                         {group.items.map((item, j) => (
@@ -188,11 +194,11 @@ export default function About() {
                                                     style={{ background: group.color }}
                                                 />
                                                 <div>
-                                                    <span className="text-sm font-semibold text-stone-700">
+                                                    <span className="text-sm font-semibold text-stone-700 dark:text-stone-300">
                                                         {item.name}
                                                     </span>
-                                                    <span className="mx-2 text-stone-300">·</span>
-                                                    <span className="text-xs text-stone-500">{item.desc}</span>
+                                                    <span className="mx-2 text-stone-300 dark:text-stone-600">·</span>
+                                                    <span className="text-xs text-stone-500 dark:text-stone-400">{item.desc}</span>
                                                 </div>
                                             </li>
                                         ))}
@@ -203,8 +209,8 @@ export default function About() {
                     </section>
                 </main>
 
-                <footer className="mt-12 border-t border-orange-100 bg-white py-6">
-                    <div className="mx-auto max-w-7xl px-4 text-center text-xs text-stone-400 sm:px-6 lg:px-8">
+                <footer className="mt-12 border-t border-orange-100 bg-white py-6 dark:border-stone-800 dark:bg-stone-900">
+                    <div className="mx-auto max-w-7xl px-4 text-center text-xs text-stone-400 dark:text-stone-500 sm:px-6 lg:px-8">
                         <p>CHALLENGE 14-14-14 // JOUR 10 // MARS 2026</p>
                     </div>
                 </footer>
